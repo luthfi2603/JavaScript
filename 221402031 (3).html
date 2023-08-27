@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="diskon">
+    <table>
+            <tr>
+                <td>
+                    <input type="number" name="nominal" placeholder="nominal isi pulsa" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="kartu" id="kartu1" onclick="biaya('T')">
+                    <label for="kartu1"> telkomsel</label>
+
+                    <input type="radio" value="indo" name="kartu" id="kartu2">
+                    <label for="kartu2" onclick="biaya('I')">indosat</label>
+
+                    <input type="radio" value="xl" name="kartu" id="kartu3">
+                    <label for="kartu3" onclick="biaya('X')">XL</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" id="nyahaha" value="biaya" onclick="tampil()">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i>*NB : klik di nama provider</i>
+                </td>
+            </tr>
+    </table>
+    </form>
+    <script>
+        
+        var hasil
+        var diskon
+
+        function biaya(a){
+            if(a=='T'){
+                nilai = document.diskon.nominal.value
+                hasil = nilai * 90 / 100 
+                diskon = "10%"
+            }else if(a=='I'){
+                nilai = document.diskon.nominal.value
+                hasil = nilai * 95 / 100 
+                diskon = "5%"
+            }else if (a=='X'){
+                nilai = document.diskon.nominal.value
+                hasil = nilai * 98 / 100 
+                diskon = "2%"
+            }
+            
+        }
+        function tampil(){
+            alert("Diskon : " +diskon+ ", Biaya Yang Diperlukan: " +hasil)
+        }
+    </script>
+
+
+</body>
+</html>

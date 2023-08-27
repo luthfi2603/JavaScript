@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transkrip Nilai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="reset"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        table {
+            width: 300px;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <form id="transcriptForm" style="margin-top: 1.5rem;">
+        <label for="courseCount">Jumlah Mata Kuliah:</label>
+        <input type="number" id="courseCount" min="1" max="60" required><br>
+        <div id="courseInputs"></div>
+        <input type="submit" value="Tambah" id="tambah" style="display: block;">
+        <input type="button" id="btnHitungIPK" value="Hitung IPK" onclick="hitungIPK()" style="margin-top: 1.5rem;display: none;">
+        <input type="reset" value="Reset" id="reset" onclick="location.reload()" style="margin-top: 1.5rem;display: none;">
+    </form>
+
+    <div id="transcriptOutput"></div>
+
+    <script>
+        const var1 = document.getElementById('tambah');
+        var1.addEventListener("click", tambahInput)
+        function tambahInput(event){
+            event.preventDefault();
+            var courseCount = document.getElementById("courseCount").value;
+            var courseInputs = document.getElementById("courseInputs");
+            courseInputs.innerHTML = "";
+            if(courseCount > 0){
+                for (var i = 0; i < courseCount; i++) {
+                    var courseNameInput = document.createElement("input");
+                    courseNameInput.type = "text";
+                    courseNameInput.placeholder = "Nama Mata Kuliah " + (i + 1);
+                    courseNameInput.id = "courseId" + (i + 1);
+                    courseInputs.appendChild(courseNameInput);
+    
+                    var courseGradeInput = document.createElement("input");
+                    courseGradeInput.type = "number";
+                    courseGradeInput.min = "0";
+                    courseGradeInput.max = "100";
+                    courseGradeInput.placeholder = "Nilai Mata Kuliah " + (i + 1);
+                    courseGradeInput.id = "courseGradeId" + (i + 1);
+                    courseInputs.appendChild(courseGradeInput);
+                }
+            }
+            var1.style.display='none';
+            document.getElementById('btnHitungIPK').style.display='block';
+        }
+        
+        function hitungIPK(event){
+            // event.preventDefault();
+            var courseCount = document.getElementById("courseCount").value;
+
+            const courseGrade = []
+            for(var i = 0; i < courseCount; i++){
+                courseGrade[i] = document.getElementById("courseGradeId" + (i + 1)).value;
+            }
+
+            var totalGradePoints = 0;
+
+            for(var i = 0; i < courseCount; i++){
+                var grade = parseInt(courseGrade[i]);
+                totalGradePoints += grade;
+            }
+
+            var gpa = totalGradePoints / courseCount;
+            document.getElementById('btnHitungIPK').style.display='none';
+            document.getElementById('reset').style.display='block';
+            displayTranscript(gpa.toFixed(2));
+        }
+
+        function displayTranscript(gpa) {
+            var transcriptOutput = document.getElementById("transcriptOutput");
+            transcriptOutput.innerHTML = "";
+
+            var table = document.createElement("table");
+
+            var headerRow = document.createElement("tr");
+            var headerCourseName = document.createElement("th");
+            headerCourseName.textContent = "Mata Kuliah";
+            var headerCourseGrade = document.createElement("th");
+            headerCourseGrade.textContent = "Nilai";
+            headerRow.appendChild(headerCourseName);
+            headerRow.appendChild(headerCourseGrade);
+            table.appendChild(headerRow);
+
+            var courseGrades = document.querySelectorAll('input[type="number"]');
+            for(var i = 0; i < courseGrades.length; i++){
+                var courseName = courseGrades[i].previousElementSibling.value;
+                var grade = parseFloat(courseGrades[i].value);
+
+                if(i == 0){
+                    var row = document.createElement("tr");
+                    var courseNameCell = document.createElement("td");
+                    courseNameCell.textContent = 'Jumlah';
+                    var courseGradeCell = document.createElement("td");
+                    courseGradeCell.textContent = grade;
+                    row.appendChild(courseNameCell);
+                    row.appendChild(courseGradeCell);
+                    table.appendChild(row);
+                    continue;
+                }
+                var row = document.createElement("tr");
+                var courseNameCell = document.createElement("td");
+                courseNameCell.textContent = courseName;
+                var courseGradeCell = document.createElement("td");
+                courseGradeCell.textContent = grade;
+                row.appendChild(courseNameCell);
+                row.appendChild(courseGradeCell);
+                table.appendChild(row);
+            }
+
+            var gpaRow = document.createElement("tr");
+            var gpaLabelCell = document.createElement("td");
+            gpaLabelCell.textContent = "IPK";
+            var gpaValueCell = document.createElement("td");
+            gpaValueCell.textContent = gpa;
+            gpaRow.appendChild(gpaLabelCell);
+            gpaRow.appendChild(gpaValueCell);
+            table.appendChild(gpaRow);
+
+            transcriptOutput.appendChild(table);
+        }
+    </script>
+</body>
+</html>

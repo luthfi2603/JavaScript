@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+</head>
+<body>
+    <h2>
+        Yang dapat dilakukan java script :
+    </h2>
+
+    <p id="1">
+        JavaScript dapat mengubah isi html
+    </p>
+
+    <button type="button" onclick='document.getElementById("1").innerHTML = "Hello JavaScript!"'>
+        Click!
+    </button>
+    <button onclick="document.getElementById('1').innerHTML = 'HTML dapat mengubah isi html'">
+        Back
+    </button>
+
+    <p>
+        JavaScript dapat mengubah nilai atribut :
+    </p>
+
+    <img src="Black.jpg" style="width: 10cm;" id="2"> <br><br>
+
+    <button onclick="document.getElementById('2').src='White.jpg'">
+        Putih
+    </button>
+
+    <button onclick="document.getElementById('2').src='Black.jpg'">
+        Hitam
+    </button>
+
+    <p id="3" style="font-size:x-large;">
+        HTML dapat mengubah style dari css
+    </p>
+
+    <button onclick="document.getElementById('3').style.color='red'">
+        Merah
+    </button>
+
+    <button onclick="document.getElementById('3').style.color='yellow'">
+        Kuning
+    </button>
+
+    <button onclick="document.getElementById('3').style.color='green'">
+        Hijau
+    </button>
+    
+    <button onclick="document.getElementById('3').style.color='cyan'">
+        Cyan
+    </button>
+
+    <button onclick="document.getElementById('3').style.color='black'">
+        Hitam
+    </button>
+
+    <br><br>
+
+    <text id="4">
+        JavaScript dapat menghilangkan HTML
+    </text>
+
+    <br><br>
+
+    <button onclick="document.getElementById('4').style.display='none'">
+        Sembunyikan
+    </button>
+
+    <button onclick="document.getElementById('4').style.display='block'">
+        Munculkan
+    </button>
+    
+    <br><br>
+
+    <!-- <h3>
+        Biaya yang dibayar
+    </h3>
+
+    <form name="biaya">
+        <table>
+            <tr>
+                <td>
+                    <input type="number" name="bilangan" placeholder="Masukkan Nominal">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="pilihan" id="1" onclick="telkomsel()">
+                    <label for="1">Telkomsel</label>
+                    <input type="radio" name="pilihan" id="2" onclick="indosat()">
+                    <label for="2">Indosat</label>
+                    <input type="radio" name="pilihan" id="3" onclick="im3()">
+                    <label for="3">im3</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Hitung" onclick="biaya_total()">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        var dis
+        var hasil
+
+        function telkomsel(){
+            x = document.biaya.bilangan.value
+            hasil = x * 90 / 100
+            dis = "10%"
+        }
+        function indosat(){
+            x = document.biaya.bilangan.value
+            hasil = x * 80 / 100
+            dis = "20%"
+        }
+        function im3(){
+            x = document.biaya.bilangan.value
+            hasil = x * 75 / 100
+            dis = "25%"
+        }
+        function biaya_total(){
+            alert("Diskon : " + dis + " Biaya yang diperlukan : " + hasil)
+        } -->
+    </script>
+</body>
+</html>
