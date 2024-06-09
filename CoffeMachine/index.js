@@ -10,7 +10,7 @@ console.log("Kopi Anda sudah siap!"); */
 // const {coffeeStock, isCoffeeMachineReady} = require('./state');
  
 // cara ES6 untuk import module
-import {coffeeStock, isCoffeeMachineReady} from './state.js';
+import {coffeeStock, isCoffeeMachineReady} from './state.js'
 /* menggunakan keyword as jika penamaan variabel lokal nya ingin
  * berbeda dengan nama variabel yang diekspor
  * contoh : import {coffeeStock as stock, isCoffeeMachineReady} from './state.js'; 
@@ -18,7 +18,7 @@ import {coffeeStock, isCoffeeMachineReady} from './state.js';
 
 // console.log(coffeeStock);
 
-/* if(isCoffeeMachineReady == true){
+if(isCoffeeMachineReady == true){
     console.log("Mesin siap.");
 }else{
     console.log("Mesin belum siap.")
@@ -32,7 +32,7 @@ const makeCoffee = (type, miligrams) => {
     }
 }
 
-makeCoffee("robusta", 80); */
+makeCoffee("robusta", 80);
 
 const displayStock = stock => {
     for(const type in stock){
@@ -43,3 +43,12 @@ const displayStock = stock => {
 displayStock(coffeeStock);
 
 console.log(isCoffeeMachineReady);
+
+/* import _ from 'lodash';
+
+const myArray = [1, 2, 3, 4];
+const sum = _.sum(myArray);
+ 
+console.log(sum); */
+
+// "test": "echo \"Error: no test specified\" && exit 1",
