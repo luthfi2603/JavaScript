@@ -17,6 +17,10 @@ for(let i = 0; i < labels.length; i++){
 
 // 3, 7, 11, 15
 
+function generate0Or1() {
+    return (+new Date()) % 2;
+}
+
 let pivot0 = 3, pivot2 = 3;
 const labels2 = document.getElementsByTagName('label');
 for(let i = 0; i < labels2.length; i++){
@@ -62,4 +66,42 @@ for(let i = 0; i < pilihan.length; i++){
  * 0 3 4
  * 5 8 9
  * 10 13 14
- */
+*/
+
+const jawabanSingkat = document.querySelectorAll('.whsOnd');
+const paragraf = document.querySelectorAll('.KHxj8b');
+const pilihanGanda = document.querySelectorAll('.AB7Lab');
+
+const eventInput = new Event('input', {
+    bubbles: true,
+    cancelable: true,
+});
+
+jawabanSingkat[0].value = 'daudtambunan2@gmail.com';
+jawabanSingkat[0].dispatchEvent(eventInput);
+jawabanSingkat[1].value = 'testDaud Hamonangan Tambunan2';
+jawabanSingkat[1].dispatchEvent(eventInput);
+jawabanSingkat[2].value = '22010122120018';
+jawabanSingkat[2].dispatchEvent(eventInput);
+jawabanSingkat[3].value = '081375737228';
+jawabanSingkat[3].dispatchEvent(eventInput);
+paragraf[0].value = 'Jalan Purwosari Gang Baru Blok XB, Medan, Sumatera Utara';
+paragraf[0].dispatchEvent(eventInput);
+paragraf[1].value = 'Jl. Gondang Barat I No.22, Bulusan, Kec. Tembalang, Kota Semarang, Jawa Tengah 50277';
+paragraf[1].dispatchEvent(eventInput);
+jawabanSingkat[4].value = 'Marlon Tambunan';
+jawabanSingkat[4].dispatchEvent(eventInput);
+jawabanSingkat[5].value = 'TNI-AD';
+jawabanSingkat[5].dispatchEvent(eventInput);
+jawabanSingkat[6].value = '081263033441';
+jawabanSingkat[6].dispatchEvent(eventInput);
+jawabanSingkat[7].value = 'Hotmaida Sitorus S.Pd, M.Si';
+jawabanSingkat[7].dispatchEvent(eventInput);
+jawabanSingkat[8].value = 'Guru';
+jawabanSingkat[8].dispatchEvent(eventInput);
+jawabanSingkat[9].value = '081263253369';
+jawabanSingkat[9].dispatchEvent(eventInput);
+pilihanGanda[1].click();
+pilihanGanda[13].click();
+pilihanGanda[32].click();
+pilihanGanda[66].click();
