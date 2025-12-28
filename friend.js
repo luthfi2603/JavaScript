@@ -4,8 +4,8 @@ ant-radio-checked
 
 let pivot = 3;
 const labels = document.getElementsByTagName('label');
-for(let i = 0; i < labels.length; i++){
-    if(i % pivot == 0 && i != 0){
+for (let i = 0; i < labels.length; i++) {
+    if (i % pivot == 0 && i != 0) {
         labels[i].classList.add('ant-radio-wrapper-checked');
 
         const spanElement = labels[i].children[0];
@@ -17,14 +17,14 @@ for(let i = 0; i < labels.length; i++){
 
 // 3, 7, 11, 15
 
-// milih pilihan ke-3 atau ke-4
+// Milih pilihan ke-3 atau ke-4
 function generate0Or1() {
     return (+new Date()) % 2;
 }
 
-let pivotI = 3, pivotII = 3;
+let pivotI = 3, pivotII = 3 - generate0Or1();
 const labelsI = document.getElementsByTagName('label');
-for(let i = 0; i < labelsI.length; i++){
+for (let i = 0; i < labelsI.length; i++) {
     if (i % pivotII == 0 && i != 0) {
         // labelsI[i].classList.add('ant-radio-wrapper-checked');
         // labelsI[i].setAttribute('class', 'ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item css-1exp8hh');
@@ -40,15 +40,15 @@ for(let i = 0; i < labelsI.length; i++){
     }
 }
 
-// milih pilihan ke-1 atau ke-2
+// Milih pilihan ke-1 atau ke-2
 function generate0Or1() {
     return (+new Date()) % 2;
 }
 
-let pivotIII = 0, pivotIV = 1;
+let pivotIII = 0, pivotIV = generate0Or1();
 const labelsII = document.getElementsByTagName('label');
-for(let i = 0; i < labelsII.length; i++){
-    if (i % pivotIV == 0) {
+for (let i = 0; i < labelsII.length; i++) {
+    if (pivotIV == 0 || (i % pivotIV == 0 && i != 0)) {
         const span = labelsII[i].children[0];
         span.children[0].click();
 
@@ -65,14 +65,14 @@ for (let i = 0; i < outers.length; i++) {
     outers[i].classList.add('ant-form-item-has-success');
 }
 
-// untuk google form
+// Untuk google form milih pilihan ke-4 atau ke-5
 function generate0Or1() {
     return (+new Date()) % 2;
 }
 
-let pivot3 = 4, pivot4 = 4;
+let pivot3 = 4, pivot4 = 4 - generate0Or1();
 const pilihan = document.querySelectorAll('.rseUEf');
-for(let i = 0; i < pilihan.length; i++){
+for (let i = 0; i < pilihan.length; i++) {
     if (i % pivot4 == 0 && i != 0) {
         pilihan[i].click();
 
@@ -87,7 +87,7 @@ for(let i = 0; i < pilihan.length; i++){
  * 10 13 14
 */
 
-// punya daud
+// Punya daud
 const jawabanSingkat = document.querySelectorAll('.whsOnd');
 const paragraf = document.querySelectorAll('.KHxj8b');
 const pilihanGanda = document.querySelectorAll('.AB7Lab');
@@ -99,7 +99,7 @@ const eventInput = new Event('input', {
 
 jawabanSingkat[0].value = 'daudtambunan2@gmail.com';
 jawabanSingkat[0].dispatchEvent(eventInput);
-jawabanSingkat[1].value = 'testDaud Hamonangan Tambunan2';
+jawabanSingkat[1].value = 'Daud Hamonangan Tambunan2';
 jawabanSingkat[1].dispatchEvent(eventInput);
 jawabanSingkat[2].value = '22010122120018';
 jawabanSingkat[2].dispatchEvent(eventInput);
